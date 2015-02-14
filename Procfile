@@ -1,1 +1,1 @@
-web: bin/hubot -a irc -n Fure-kun
+app: bin/hubot -a irc -n Fure-kun
