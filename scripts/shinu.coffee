@@ -51,7 +51,7 @@ module.exports = (robot) ->
                 status = if response.flash[0].notice == undefined then response.flash[0].error else response.flash[0].notice 
                 msg.send(status)
                 
-   robot.respond /rebuild me travis latest/i, (msg) -> 
+  robot.respond /rebuild me travis latest/i, (msg) -> 
       msg.http("https://api.travis-ci.org/repos/SnowflakePowered/snowflake/builds")
           .get() (err, res, body) ->
             response = JSON.parse body
@@ -100,7 +100,7 @@ module.exports = (robot) ->
             jobid = build.jobs[0].jobId
             msg.send "http://ci.appveyor.com/api/buildjobs/#{jobid}/artifacts/" + "Generated doxygen documentation.zip"
  
- robot.respond /get me ci bins/i, (msg) ->
+  robot.respond /get me ci bins/i, (msg) ->
         msg.http("http://ci.appveyor.com/api/projects/RonnChyran/snowflake/branch/master")
           .header('Accept', 'application/json')
           .header('Content-Type', 'application/json')
@@ -110,7 +110,7 @@ module.exports = (robot) ->
             jobid = build.jobs[0].jobId
             msg.send "http://ci.appveyor.com/api/buildjobs/#{jobid}/artifacts/" + "Snowflake/bin/Snowflake Base Libraries.zip"
   
- robot.router.post "/hubot/appveyor", (req, res) ->
+  robot.router.post "/hubot/appveyor", (req, res) ->
     query = querystring.parse url.parse(req.url).query
 
     user = {}
