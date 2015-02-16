@@ -98,7 +98,7 @@ module.exports = (robot) ->
             response = JSON.parse body
             build = response.build
             jobid = build.jobs[0].jobId
-            msg.send "http://ci.appveyor.com/api/buildjobs/#{jobid}/artifacts/" + "Generated doxygen documentation.zip"
+            msg.send "http://ci.appveyor.com/api/buildjobs/#{jobid}/artifacts/" + "Generated%20doxygen%20documentation.zip"
  
   robot.respond /get me ci bins/i, (msg) ->
         msg.http("http://ci.appveyor.com/api/projects/RonnChyran/snowflake/branch/master")
@@ -108,7 +108,7 @@ module.exports = (robot) ->
             response = JSON.parse body
             build = response.build
             jobid = build.jobs[0].jobId
-            msg.send "http://ci.appveyor.com/api/buildjobs/#{jobid}/artifacts/" + "Snowflake/bin/Snowflake Base Libraries.zip"
+            msg.send "http://ci.appveyor.com/api/buildjobs/#{jobid}/artifacts/" + "Snowflake/bin/Snowflake%20Base%20Libraries.zip"
   
   robot.router.post "/hubot/appveyor", (req, res) ->
     query = querystring.parse url.parse(req.url).query
